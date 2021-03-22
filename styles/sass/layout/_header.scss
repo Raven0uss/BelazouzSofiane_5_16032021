@@ -1,0 +1,28 @@
+@import "../utils/variables";
+
+header {
+  grid-area: 1 / 1 / 2 / 3;
+  height: 157px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+
+  a {
+    justify-self: center;
+    grid-area: 1 / 1 / 2 / 2;
+    margin-top: 42px;
+    #logo {
+      width: 200px;
+      height: auto;
+    }
+  }
+
+  nav {
+    justify-self: flex-start;
+    grid-area: 1 / 2 / 2 / 5;
+    margin-top: 54px;
+  }
+}
