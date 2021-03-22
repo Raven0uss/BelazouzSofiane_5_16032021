@@ -11,21 +11,67 @@ main {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 157px 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
 }
 
-h1 {
+.index-title {
   grid-area: 1 / 3 / 2 / 4;
   margin: 0px;
   margin-top: 42px;
+  margin-left: 15px;
   color: $primaryColor;
   font-weight: 400;
 }
 
-section {
+#photographer-list {
   grid-area: 2 / 1 / 3 / 4;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
+  margin-top: 30px;
+
+  article {
+    display: grid;
+    justify-items: center;
+    margin-top: 50px;
+
+    .photographer-box {
+      display: grid;
+      justify-items: center;
+      .photographer-portrait {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+      .photographer-name {
+        margin: 0px;
+        margin-top: 20px;
+        font-size: 36px;
+        font-weight: 400;
+        color: $primaryColor;
+      }
+    }
+    .photographer-location {
+      margin: 0px;
+      font-size: 13px;
+      font-weight: 400;
+      color: $primaryColor;
+    }
+    .photographer-citation {
+      margin: 0px;
+      margin-top: 5px;
+      font-size: 10px;
+      font-weight: 400;
+      color: #000;
+    }
+    .photographer-price {
+      margin: 0px;
+      margin-top: 5px;
+      font-size: 9px;
+      font-weight: 400;
+      color: $tertiaryColor;
+    }
+  }
 }
