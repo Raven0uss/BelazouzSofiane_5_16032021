@@ -10,13 +10,11 @@ const getJson = async () => {
 
 /*
   When we click on tag, it add a query param to the page with tag selected.
-  If there is a query param the photographers factory load only profile with the tag
+  If there is a query param the filter part keep only profile with the tag
 */
 
 const main = async () => {
   const json = await getJson();
-  // console.log(json);
-
   const queryParams = getQueryParams();
 
   const photographersData = get(json, "photographers", []);
@@ -33,8 +31,6 @@ const main = async () => {
     .map((photographer) => {
       return PhotographersFactory(photographer);
     });
-  // console.log(photographers);
-  // console.log(media);
 };
 
 main();

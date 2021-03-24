@@ -35,7 +35,6 @@ main {
     text-align: center;
     margin-top: 50px;
     width: 300px;
-    // align-items: start;
 
     .photographer-box {
       display: grid;
@@ -47,6 +46,7 @@ main {
         object-fit: cover;
         border-radius: 50%;
         box-shadow: -2px 2px 10px #adadad;
+        transition-duration: 500ms;
       }
       .photographer-name {
         margin: 0px;
@@ -55,6 +55,13 @@ main {
         font-weight: 400;
         color: $secondaryColor;
         white-space: nowrap;
+      }
+
+      &:hover {
+        .photographer-portrait {
+          box-shadow: -4px 4px 5px #797979;
+          transform: translateY(5px);
+        }
       }
     }
     .photographer-location {

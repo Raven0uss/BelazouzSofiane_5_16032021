@@ -91,7 +91,8 @@ main {
         height: 200px;
         object-fit: cover;
         border-radius: 50%;
-        box-shadow: -2px 2px 10px #adadad; }
+        box-shadow: -2px 2px 10px #adadad;
+        transition-duration: 500ms; }
       #photographer-list .photographer-container .photographer-box .photographer-name {
         margin: 0px;
         margin-top: 20px;
@@ -99,6 +100,9 @@ main {
         font-weight: 400;
         color: #d3573c;
         white-space: nowrap; }
+      #photographer-list .photographer-container .photographer-box:hover .photographer-portrait {
+        box-shadow: -4px 4px 5px #797979;
+        transform: translateY(5px); }
     #photographer-list .photographer-container .photographer-location {
       margin: 0px;
       font-size: 13px;
