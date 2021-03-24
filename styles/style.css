@@ -14,7 +14,8 @@ body {
   font-weight: 500;
   font-size: 12px;
   margin-right: 5px;
-  padding: 3px 7px; }
+  padding: 3px 7px;
+  height: 16px; }
 
 header {
   grid-area: 1 / 1 / 2 / 3;
@@ -66,12 +67,11 @@ main {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
-  margin-top: 30px; }
+  margin-bottom: 70px; }
   #photographer-list .photographer-container {
-    display: grid;
-    justify-items: center;
+    text-align: center;
     margin-top: 50px;
-    width: 263px; }
+    width: 300px; }
     #photographer-list .photographer-container .photographer-box {
       display: grid;
       justify-items: center; }
@@ -86,7 +86,8 @@ main {
         margin-top: 20px;
         font-size: 36px;
         font-weight: 400;
-        color: #d3573c; }
+        color: #d3573c;
+        white-space: nowrap; }
     #photographer-list .photographer-container .photographer-location {
       margin: 0px;
       font-size: 13px;
@@ -105,11 +106,13 @@ main {
       font-weight: 400;
       color: #525252; }
     #photographer-list .photographer-container .tag-container {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-row-gap: 5px;
-      margin-top: 10px;
-      justify-items: center; }
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: center;
+      margin-top: 7px; }
+      #photographer-list .photographer-container .tag-container .tag {
+        margin-top: 3px; }
 
 .sr-only {
   position: absolute;

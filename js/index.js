@@ -1,4 +1,5 @@
 import { get } from "./utils/ft_lodash.js";
+import { PhotographersFactory } from "./photographers.js";
 
 const getJson = async () => {
   const response = await fetch("./ressources/json/fisheye-data.json");
@@ -8,13 +9,16 @@ const getJson = async () => {
 
 const main = async () => {
   const json = await getJson();
-  console.log(json);
+  // console.log(json);
 
-  const photographers = get(json, "photographers", []);
-  const media = get(json, "media", []);
+  const photographersData = get(json, "photographers", []);
+  const mediaData = get(json, "media", []);
 
-  console.log(photographers);
-  console.log(media);
+  const photographers = photographersData.map((photographer) => {
+    return PhotographersFactory(photographer);
+  });
+  // console.log(photographers);
+  // console.log(media);
 };
 
 main();
