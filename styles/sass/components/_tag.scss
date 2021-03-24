@@ -8,3 +8,13 @@
   padding: 3px 7px;
   height: 16px;
 }
+
+nav {
+  .tag {
+    cursor: pointer;
+    &:hover {
+      background-color: #c4c4c4;
+      transition-duration: 300ms;
+    }
+  }
+}
