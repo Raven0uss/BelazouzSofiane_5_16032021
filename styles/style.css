@@ -7,23 +7,34 @@ html {
 body {
   margin: 0 auto; }
 
+.tag {
+  color: #901c1c;
+  border: 0.5px solid #c4c4c4;
+  border-radius: 11px;
+  font-weight: 500;
+  font-size: 12px;
+  margin-right: 5px;
+  padding: 3px 7px; }
+
 header {
   grid-area: 1 / 1 / 2 / 3;
   height: 157px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 0.5fr 1fr;
   grid-template-rows: 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px; }
-  header a {
-    justify-self: center;
+  header .link-logo-container {
+    justify-self: end;
     grid-area: 1 / 1 / 2 / 2;
     margin-top: 42px; }
-    header a #logo {
+    header .link-logo-container #logo {
       width: 200px;
       height: auto; }
   header nav {
-    justify-self: flex-start;
+    line-height: 30px;
+    justify-self: center;
+    text-align: center;
     grid-area: 1 / 2 / 2 / 5;
     margin-top: 54px; }
 
@@ -56,41 +67,49 @@ main {
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
   margin-top: 30px; }
-  #photographer-list article {
+  #photographer-list .photographer-container {
     display: grid;
     justify-items: center;
-    margin-top: 50px; }
-    #photographer-list article .photographer-box {
+    margin-top: 50px;
+    width: 263px; }
+    #photographer-list .photographer-container .photographer-box {
       display: grid;
       justify-items: center; }
-      #photographer-list article .photographer-box .photographer-portrait {
+      #photographer-list .photographer-container .photographer-box .photographer-portrait {
         width: 200px;
         height: 200px;
         object-fit: cover;
-        border-radius: 50%; }
-      #photographer-list article .photographer-box .photographer-name {
+        border-radius: 50%;
+        box-shadow: -2px 2px 10px #adadad; }
+      #photographer-list .photographer-container .photographer-box .photographer-name {
         margin: 0px;
         margin-top: 20px;
         font-size: 36px;
         font-weight: 400;
-        color: #901c1c; }
-    #photographer-list article .photographer-location {
+        color: #d3573c; }
+    #photographer-list .photographer-container .photographer-location {
       margin: 0px;
       font-size: 13px;
       font-weight: 400;
       color: #901c1c; }
-    #photographer-list article .photographer-citation {
+    #photographer-list .photographer-container .photographer-citation {
       margin: 0px;
       margin-top: 5px;
       font-size: 10px;
       font-weight: 400;
       color: #000; }
-    #photographer-list article .photographer-price {
+    #photographer-list .photographer-container .photographer-price {
       margin: 0px;
       margin-top: 5px;
       font-size: 9px;
       font-weight: 400;
       color: #525252; }
+    #photographer-list .photographer-container .tag-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-row-gap: 5px;
+      margin-top: 10px;
+      justify-items: center; }
 
 .sr-only {
   position: absolute;

@@ -1,17 +1,15 @@
-@import "../utils/variables";
-
 header {
   grid-area: 1 / 1 / 2 / 3;
   height: 157px;
 
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 0.5fr 1fr;
   grid-template-rows: 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 
-  a {
-    justify-self: center;
+  .link-logo-container {
+    justify-self: end;
     grid-area: 1 / 1 / 2 / 2;
     margin-top: 42px;
     #logo {
@@ -21,7 +19,9 @@ header {
   }
 
   nav {
-    justify-self: flex-start;
+    line-height: 30px;
+    justify-self: center;
+    text-align: center;
     grid-area: 1 / 2 / 2 / 5;
     margin-top: 54px;
   }
