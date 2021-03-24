@@ -23,7 +23,7 @@ a {
 
 nav .tag {
   cursor: pointer; }
-  nav .tag:hover {
+  nav .tag:hover, nav .tag:focus {
     background-color: #c4c4c4;
     transition-duration: 300ms; }
 
@@ -100,7 +100,7 @@ main {
         font-weight: 400;
         color: #d3573c;
         white-space: nowrap; }
-      #photographer-list .photographer-container .photographer-box:hover .photographer-portrait {
+      #photographer-list .photographer-container .photographer-box:hover .photographer-portrait, #photographer-list .photographer-container .photographer-box:focus .photographer-portrait {
         box-shadow: -4px 4px 5px #797979;
         transform: translateY(5px); }
     #photographer-list .photographer-container .photographer-location {

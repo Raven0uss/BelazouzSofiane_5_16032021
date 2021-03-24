@@ -12,7 +12,8 @@
 nav {
   .tag {
     cursor: pointer;
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: #c4c4c4;
       transition-duration: 300ms;
     }

@@ -57,7 +57,8 @@ main {
         white-space: nowrap;
       }
 
-      &:hover {
+      &:hover,
+      &:focus {
         .photographer-portrait {
           box-shadow: -4px 4px 5px #797979;
           transform: translateY(5px);
