@@ -34,7 +34,7 @@ main {
   .photographer-container {
     text-align: center;
     margin-top: 50px;
-    width: 300px;
+    max-width: 300px;
 
     .photographer-box {
       display: grid;

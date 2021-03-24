@@ -82,7 +82,7 @@ main {
   #photographer-list .photographer-container {
     text-align: center;
     margin-top: 50px;
-    width: 300px; }
+    max-width: 300px; }
     #photographer-list .photographer-container .photographer-box {
       display: grid;
       justify-items: center; }
