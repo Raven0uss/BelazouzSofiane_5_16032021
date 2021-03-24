@@ -14,7 +14,9 @@ nav {
     cursor: pointer;
     &:hover,
     &:focus {
-      background-color: #c4c4c4;
+      background-color: $primaryColor;
+      border-color: $primaryColor;
+      color: #fff;
       transition-duration: 300ms;
     }
   }

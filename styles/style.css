@@ -24,7 +24,9 @@ a {
 nav .tag {
   cursor: pointer; }
   nav .tag:hover, nav .tag:focus {
-    background-color: #c4c4c4;
+    background-color: #901c1c;
+    border-color: #901c1c;
+    color: #fff;
     transition-duration: 300ms; }
 
 header {
