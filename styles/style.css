@@ -50,6 +50,28 @@ header {
     grid-area: 1 / 2 / 2 / 5;
     margin-top: 54px; }
 
+@media screen and (max-width: 768px) {
+  header {
+    display: block; }
+    header nav {
+      width: 100%;
+      position: absolute;
+      margin-top: 34px; }
+    header .link-logo-container #logo {
+      width: 150px;
+      margin-top: 42px;
+      margin-left: 20px; } }
+@media screen and (max-width: 450px) {
+  header {
+    display: block; }
+    header nav {
+      width: 100%;
+      position: absolute;
+      margin-top: 34px; }
+    header .link-logo-container #logo {
+      width: 150px;
+      margin-top: 42px;
+      margin-left: 20px; } }
 body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -129,6 +151,25 @@ main {
       #photographer-list .photographer-container .tag-container .tag {
         margin-top: 3px; }
 
+@media screen and (max-width: 768px) {
+  #photographer-list {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 30px; }
+
+  .index-title {
+    font-size: 18px;
+    grid-area: 2 / 3 / 1 / 4;
+    margin-left: -10px;
+    margin-top: 48px; } }
+@media screen and (max-width: 450px) {
+  #photographer-list {
+    grid-template-columns: 1fr; }
+
+  .index-title {
+    font-size: 14px;
+    grid-area: 2 / 3 / 1 / 4;
+    margin-left: -20px;
+    margin-top: 48px; } }
 .sr-only {
   position: absolute;
   left: -10000px;
