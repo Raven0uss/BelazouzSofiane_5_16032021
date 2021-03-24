@@ -21,7 +21,7 @@ const Photographers = function ({
     const photographerArticle = document.createElement("article");
     photographerArticle.className = "photographer-container";
     photographerArticle.innerHTML = `
-        <a class="photographer-box">
+        <a class="photographer-box" href="./pages/photographer-page.html?id=${this.id}">
             <img
               src="./ressources/images/Photographers\ ID\ Photos/${this.portrait}"
               alt="${this.name}"
@@ -49,7 +49,9 @@ const Photographers = function ({
     photographerList.append(photographerArticle);
   };
 
-  addPhotographerArticle();
+  const onCreate = (() => {
+    addPhotographerArticle();
+  })();
 };
 
 const PhotographersFactory = (props) => new Photographers(props);
