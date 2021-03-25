@@ -1,20 +1,14 @@
 import { get } from "./utils/ft_lodash.js";
 import { getQueryParams } from "./utils/getQueryParams.js";
-import { PhotographersFactory } from "./photographers.js";
-
-const getJson = async () => {
-  const response = await fetch("./ressources/json/fisheye-data.json");
-  const json = await response.json();
-  return json;
-};
-
+import { getJson } from "./utils/getJson.js";
+import { PhotographersFactory } from "./factory/photographers.js";
 /*
   When we click on tag, it add a query param to the page with tag selected.
   If there is a query param the filter part keep only profile with the tag
 */
 
 const main = async () => {
-  const json = await getJson();
+  const json = await getJson("./ressources/json/fisheye-data.json");
   const queryParams = getQueryParams();
 
   const photographersData = get(json, "photographers", []);

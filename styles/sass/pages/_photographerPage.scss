@@ -1,0 +1,25 @@
+body {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 157px 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+header {
+  grid-area: 1 / 1 / 2 / 3;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+
+  .link-logo-container {
+    justify-self: start;
+    margin-left: 100px;
+  }
+}
+
+main {
+  grid-area: 2 / 1 / 3 / 3;
+}
