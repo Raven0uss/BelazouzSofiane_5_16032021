@@ -63,7 +63,7 @@ h2 {
       text-align: right;
       font-size: 36px;
       font-weight: 400;
-      color: #901c1c; }
+      color: #901C1C; }
 
 @media screen and (max-width: 1024px) {
   #index-page {
@@ -90,7 +90,7 @@ h2 {
   #index-page #index-main #index-title {
     font-size: 28px;
     font-weight: 400;
-    color: #901c1c; } }
+    color: #901C1C; } }
 @media screen and (max-width: 500px) {
   #index-page {
     grid-template-columns: 150px 1fr 100px; }
@@ -136,7 +136,7 @@ h2 {
       line-height: 46.87px; }
     #photographer-list .photographer-container .photographer-location {
       font-size: 13px;
-      color: #901c1c;
+      color: #901C1C;
       text-align: center;
       font-weight: 400; }
     #photographer-list .photographer-container .photographer-citation {
@@ -190,7 +190,7 @@ h2 {
       font-weight: 400;
       line-height: 83px; }
     #photographer-main #photographer-main-head-container .photographer-informations .photographer-location {
-      color: #901c1c;
+      color: #901C1C;
       font-size: 24px;
       font-weight: 400;
       line-height: 31.25px; }
@@ -209,7 +209,7 @@ h2 {
     width: 170px;
     border-radius: 5px;
     border: none;
-    background-color: #901c1c;
+    background-color: #901C1C;
     color: #fff;
     font-weight: 700;
     font-size: 20px;
@@ -267,14 +267,18 @@ h2 {
       height: 300px;
       border-radius: 5px;
       object-fit: cover;
-      object-position: top left; }
+      object-position: top left;
+      cursor: pointer; }
+      #photographer-main #media-list-container .media-container .media-thumbnail:hover, #photographer-main #media-list-container .media-container .media-thumbnail:focus {
+        opacity: 0.8;
+        transition-duration: 300ms; }
     #photographer-main #media-list-container .media-container .media-informations {
       display: flex;
       flex-wrap: nowrap;
       white-space: nowrap;
       overflow: hidden;
       margin-top: 5px;
-      color: #901c1c;
+      color: #901C1C;
       font-size: 24px; }
       #photographer-main #media-list-container .media-container .media-informations .media-title {
         white-space: nowrap;
@@ -289,7 +293,11 @@ h2 {
         font-weight: 500; }
         #photographer-main #media-list-container .media-container .media-informations .media-likes .like-button {
           margin-left: 6px;
-          font-size: 22px; }
+          font-size: 22px;
+          cursor: pointer; }
+          #photographer-main #media-list-container .media-container .media-informations .media-likes .like-button:hover, #photographer-main #media-list-container .media-container .media-informations .media-likes .like-button:focus {
+            color: #d3573c;
+            transition-duration: 300ms; }
 
 @media screen and (max-width: 1024px) {
   #photographer-page {
@@ -381,7 +389,7 @@ h2 {
         #photographer-main #media-list-container .media-container .media-informations .media-likes .like-button {
           font-size: 12px; } }
 .tag {
-  color: #901c1c;
+  color: #901C1C;
   border: 0.5px solid #c4c4c4;
   border-radius: 11px;
   font-weight: 500;
@@ -395,8 +403,8 @@ nav .tag, .photographer-tags-container .tag {
   cursor: pointer;
   margin-bottom: 3px; }
   nav .tag:hover, nav .tag:focus, .photographer-tags-container .tag:hover, .photographer-tags-container .tag:focus {
-    background-color: #901c1c;
-    border-color: #901c1c;
+    background-color: #901C1C;
+    border-color: #901C1C;
     color: #fff;
     transition-duration: 300ms; }
 

@@ -57,12 +57,103 @@
             <p class="photographer-price">300€ / jour</p>
           </div>
         </div>
-        <label id="label-select-order" for="select-order">Trier par</label>
-        <select aria-labelledby="Order by" id="select-order">
-          <option value="popular">Popularité</option>
+        <label id="label-select-order" for="select-wrapper">Trier par</label>
+        <!-- <div id="select-wrapper">
+          <button
+            id="select-button"
+            class="button-dropdown-open"
+            role="button"
+            aria-haspopup="listbox"
+            aria-expanded="true"
+          >
+            Popularité
+            <i class="fas fa-chevron-up select-arrow-up"></i>
+          </button>
+          <ul id="select-menu" class="menu-dropdown-open">
+            <div class="select-separator"></div>
+            <li class="select-element">Date</li>
+            <div class="select-separator"></div>
+            <li class="select-element">Titre</li>
+          </ul>
+        </div>
+
+        <div id="select-wrapper">
+          <button
+            id="select-button"
+            class="button-dropdown-close"
+            role="button"
+            aria-haspopup="listbox"
+            aria-expanded="true"
+          >
+            Popularité
+            <i class="fas fa-chevron-down select-arrow-down"></i>
+          </button>
+          <ul id="select-menu" class="menu-dropdown-close">
+            <li
+              class="select-element"
+              role="listbox"
+              aria-selected="true"
+              aria-labelledby="label-select-order"
+            >
+              Popularité
+            </li>
+            <li
+              class="select-element"
+              role="listbox"
+              aria-selected="false"
+              aria-labelledby="label-select-order"
+            >
+              Date
+            </li>
+            <li
+              class="select-element"
+              role="listbox"
+              aria-selected="false"
+              aria-labelledby="label-select-order"
+            >
+              Titre
+            </li>
+          </ul>
+        </div> -->
+
+        <!-- <select aria-labelledby="Order by" id="select-order">
+          <option value="popular" data-content="<span>wesh</span>">
+            <div class="test">Popularité</div>
+          </option>
           <option value="date">Date</option>
           <option value="title">Titre</option>
-        </select>
+        </select> -->
+
+        <!-- 
+        <i class="fas fa-chevron-up select-arrow-up"></i> -->
+
+        <!-- <div class="listbox-area">
+          <div class="left-area">
+            <span id="exp_elem"> Choose an element: </span>
+            <div id="exp_wrapper">
+              <button
+                aria-haspopup="listbox"
+                aria-labelledby="exp_elem exp_button"
+                id="exp_button"
+              >
+                Neptunium
+              </button>
+              <ul
+                id="exp_elem_list"
+                tabindex="-1"
+                role="listbox"
+                aria-labelledby="exp_elem"
+                class="hidden"
+              >
+                <li id="exp_elem_Np" role="option">Neptunium</li>
+                <li id="exp_elem_Pu" role="option">Plutonium</li>
+                <li id="exp_elem_Am" role="option">Americium</li>
+                <li id="exp_elem_Cm" role="option">Curium</li>
+              </ul>
+            </div>
+          </div>
+        </div> -->
+
         <section id="media-list-container">
           <article class="media-container">
             <img
@@ -73,8 +164,8 @@
             <div class="media-informations">
               <p class="media-title">Arc-en-ciel hehehehe</p>
               <p class="media-price">70€</p>
-              <div class="media-likes" tabindex="0">
-                21<i class="fas fa-heart like-button"></i>
+              <div class="media-likes">
+                21<i class="fas fa-heart like-button" tabindex="0"></i>
               </div>
             </div>
           </article>

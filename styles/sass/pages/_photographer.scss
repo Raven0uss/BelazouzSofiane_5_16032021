@@ -157,6 +157,13 @@
 
         object-fit: cover;
         object-position: top left;
+
+        cursor: pointer;
+
+        &:hover, &:focus {
+          opacity: 0.8;
+          transition-duration: 300ms;
+        }
       }
 
       .media-informations {
@@ -186,9 +193,17 @@
 
         .media-likes {
           font-weight: 500;
+
           .like-button {
             margin-left: 6px;
             font-size: 22px;
+            cursor: pointer;
+
+            &:hover,
+            &:focus {
+              color: $secondaryColor;
+              transition-duration: 300ms;
+            }
           }
         }
       }

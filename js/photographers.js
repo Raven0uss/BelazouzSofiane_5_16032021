@@ -2,6 +2,7 @@ import { get, isNil } from "./utils/ft_lodash.js";
 import { getQueryParams } from "./utils/getQueryParams.js";
 import { getJson } from "./utils/getJson.js";
 import { PhotographersFactory } from "./factory/photographersFactory.js";
+import "./components/select.js";
 
 const getPhotographerAndMedia = ({ photographersData, mediaData, idProp }) => {
   const id = parseInt(idProp, 10);
