@@ -3,15 +3,17 @@
   border: 0.5px solid #c4c4c4;
   border-radius: 11px;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 11px;
   margin-right: 5px;
   padding: 3px 7px;
   height: 16px;
+  white-space: pre;
 }
 
-nav {
+nav, .photographer-tags-container {
   .tag {
     cursor: pointer;
+    margin-bottom: 3px;
     &:hover,
     &:focus {
       background-color: $primaryColor;

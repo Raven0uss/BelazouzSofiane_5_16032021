@@ -13,65 +13,43 @@
     <title>FishEye</title>
   </head>
   <body>
-    <header role="banner">
-      <a class="link-logo-container" href="index.html">
-        <img
-          id="logo"
-          alt="Fisheye Home page"
-          src="./ressources/images/logo.png"
-        />
-      </a>
-      <nav aria-label="photographer categories" role="navigation">
-        <a class="tag" href="index.html?tag=portrait"
-          ><span class="sr-only">#Portrait</span>#Portrait</a
-        >
-        <a class="tag" href="index.html?tag=art"
-          ><span class="sr-only">#Art</span>#Art</a
-        >
-        <a class="tag" href="index.html?tag=fashion"
-          ><span class="sr-only">#Fashion</span>#Fashion</a
-        >
-        <a class="tag" href="index.html?tag=architecture"
-          ><span class="sr-only">#Architecture</span>#Architecture</a
-        >
-        <a class="tag" href="index.html?tag=travel"
-          ><span class="sr-only">#Travel</span>#Travel</a
-        >
-        <a class="tag" href="index.html?tag=sport"
-          ><span class="sr-only">#Sport</span>#Sport</a
-        >
-        <a class="tag" href="index.html?tag=animals"
-          ><span class="sr-only">#Animals</span>#Animals</a
-        >
-        <a class="tag" href="index.html?tag=events"
-          ><span class="sr-only">#Events</span>#Events</a
-        >
-      </nav>
-    </header>
-    <main id="main">
-      <h1 class="index-title">Nos photographes</h1>
-      <section id="photographer-list">
-        <!-- <article class="photographer-container">
-          <a class="photographer-box">
-            <img
-              src="./ressources/images/Portrait_Nora.jpg"
-              alt="Mimi Keel"
-              class="photographer-portrait"
-            />
-            <h2 class="photographer-name">Mimi Keel</h2>
-          </a>
-          <p class="photographer-location">London, UK</p>
-          <p class="photographer-citation">Voir le beau dans le quotidien</p>
-          <p class="photographer-price">400€/jour</p>
-          <div class="tag-container">
-            <a class="tag"><span class="sr-only">#portrait</span>#portrait</a>
-            <a class="tag"><span class="sr-only">#travel</span>#travel</a>
-            <a class="tag"><span class="sr-only">#animals</span>#animals</a>
-            <a class="tag"><span class="sr-only">#events</span>#events</a>
-          </div>
-        </article> -->
-      </section>
-    </main>
+    <div id="index-page">
+      <header id="index-header">
+        <a id="logo-container" href="index.html">
+          <img src="ressources/images/logo.png" id="logo" alt="Fisheye Home page"/>
+        </a>
+        <nav aria-label="photographer categories" role="navigation">
+          <a class="tag" href="index.html?tag=portrait"
+            ><span class="sr-only">#Portrait</span>#Portrait</a
+          >
+          <a class="tag" href="index.html?tag=art"
+            ><span class="sr-only">#Art</span>#Art</a
+          >
+          <a class="tag" href="index.html?tag=fashion"
+            ><span class="sr-only">#Fashion</span>#Fashion</a
+          >
+          <a class="tag" href="index.html?tag=architecture"
+            ><span class="sr-only">#Architecture</span>#Architecture</a
+          >
+          <a class="tag" href="index.html?tag=travel"
+            ><span class="sr-only">#Travel</span>#Travel</a
+          >
+          <a class="tag" href="index.html?tag=sport"
+            ><span class="sr-only">#Sport</span>#Sport</a
+          >
+          <a class="tag" href="index.html?tag=animals"
+            ><span class="sr-only">#Animals</span>#Animals</a
+          >
+          <a class="tag" href="index.html?tag=events"
+            ><span class="sr-only">#Events</span>#Events</a
+          >
+        </nav>
+      </header>
+      <main id="index-main">
+        <h1 id="index-title">Nos Photographes</h1>
+        <section id="photographer-list"></section>
+      </main>
+    </div>
     <script type="module" src="./js/index.js"></script>
   </body>
 </html>

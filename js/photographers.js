@@ -1,7 +1,7 @@
 import { get, isNil } from "./utils/ft_lodash.js";
 import { getQueryParams } from "./utils/getQueryParams.js";
 import { getJson } from "./utils/getJson.js";
-import { PhotographersFactory } from "./factory/photographers.js";
+import { PhotographersFactory } from "./factory/photographersFactory.js";
 
 const getPhotographerAndMedia = ({ photographersData, mediaData, idProp }) => {
   const id = parseInt(idProp, 10);
@@ -35,7 +35,7 @@ const getPhotographerAndMedia = ({ photographersData, mediaData, idProp }) => {
 };
 
 const main = async () => {
-  const json = await getJson("../ressources/json/fisheye-data.json");
+  const json = await getJson("./ressources/json/fisheye-data.json");
   const queryParams = getQueryParams();
 
   const photographersData = get(json, "photographers", []);

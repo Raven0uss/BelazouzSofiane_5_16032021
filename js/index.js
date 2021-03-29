@@ -1,7 +1,7 @@
 import { get } from "./utils/ft_lodash.js";
 import { getQueryParams } from "./utils/getQueryParams.js";
 import { getJson } from "./utils/getJson.js";
-import { PhotographersFactory } from "./factory/photographers.js";
+import { PhotographersFactory } from "./factory/photographersFactory.js";
 /*
   When we click on tag, it add a query param to the page with tag selected.
   If there is a query param the filter part keep only profile with the tag

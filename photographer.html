@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <title>FishEye</title>
+  </head>
+  <body>
+    <div id="photographer-page">
+      <header id="photographer-header">
+        <a id="logo-container" href="index.html">
+          <img
+            src="ressources/images/logo.png"
+            id="logo"
+            alt="Fisheye Home page"
+          />
+        </a>
+      </header>
+      <main id="photographer-main">
+        <div id="photographer-main-head-container">
+          <div class="photographer-informations">
+            <h1 class="photographer-name">Mimi Keel</h1>
+            <p class="photographer-location">London, UK</p>
+            <p class="photographer-quote">Voir le beau dans le quotidien</p>
+            <div class="photographer-tags-container">
+              <a class="tag" tabindex="0"
+                ><span class="sr-only">#${tag}</span>#${tag}</a
+              ><a class="tag" tabindex="0"
+                ><span class="sr-only">#${tag}</span>#${tag}</a
+              ><a class="tag" tabindex="0"
+                ><span class="sr-only">#${tag}</span>#${tag}</a
+              >
+              <a class="tag" tabindex="0"
+                ><span class="sr-only">#${tag}</span>#${tag}</a
+              >
+              <a class="tag" tabindex="0"
+                ><span class="sr-only">#${tag}</span>#${tag}</a
+              >
+            </div>
+          </div>
+          <button class="contact-btn" aria-label="Contact Me">
+            Contactez-moi
+          </button>
+          <img
+            src="ressources/images/Photographers ID Photos/MimiKeel.jpg"
+            class="photographer-image"
+          />
+          <div class="total-likes-and-price-container">
+            <div class="total-likes">21<i class="fas fa-heart"></i></div>
+            <p class="photographer-price">300€ / jour</p>
+          </div>
+        </div>
+        <label id="label-select-order" for="select-order">Trier par</label>
+        <select aria-labelledby="Order by" id="select-order">
+          <option value="popular">Popularité</option>
+          <option value="date">Date</option>
+          <option value="title">Titre</option>
+        </select>
+        <section id="media-list-container">
+          <article class="media-container">
+            <img
+              src="./ressources/images/Rhode/Fashion_Melody_Red_on_Stripes.jpg"
+              class="media-thumbnail"
+              tabindex="0"
+            />
+            <div class="media-informations">
+              <p class="media-title">Arc-en-ciel hehehehe</p>
+              <p class="media-price">70€</p>
+              <div class="media-likes" tabindex="0">
+                21<i class="fas fa-heart like-button"></i>
+              </div>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="./js/photographers.js"></script>
+  </body>
+</html>

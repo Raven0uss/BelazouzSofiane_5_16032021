@@ -21,7 +21,7 @@ const Photographers = function ({
     const photographerArticle = document.createElement("article");
     photographerArticle.className = "photographer-container";
     photographerArticle.innerHTML = `
-        <a class="photographer-box" href="./pages/photographer-page.html?id=${this.id}">
+        <a class="photographer-box" href="./photographer.html?id=${this.id}">
             <img
               src="./ressources/images/Photographers\ ID\ Photos/${this.portrait}"
               alt="${this.name}"
