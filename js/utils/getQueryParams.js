@@ -1,3 +1,4 @@
+// Function which get params in URL
 const getQueryParams = () => {
   const url = window.location.search.substring(1);
   const params = url.split("&");

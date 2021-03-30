@@ -1,5 +1,7 @@
+// Function to detect if an element is null or undefined
 const isNil = (element) => element === null || element === undefined;
 
+// Function to safely get properties of an object
 const get = (element, properties, safeValue = undefined) => {
   try {
     const propertiesReparsed = properties

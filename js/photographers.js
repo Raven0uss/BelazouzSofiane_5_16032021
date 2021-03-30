@@ -5,6 +5,7 @@ import { PhotographersFactory } from "./factory/photographersFactory.js";
 import "./components/select.js";
 import { MediaFactory } from "./factory/mediaFactory.js";
 
+// Function which return the data filtered for the DOM
 const getPhotographerAndMedia = ({ photographersData, mediaData, idProp }) => {
   const id = parseInt(idProp, 10);
   if (id === NaN || isNil(id)) {
@@ -37,6 +38,7 @@ const getPhotographerAndMedia = ({ photographersData, mediaData, idProp }) => {
 };
 
 const main = async () => {
+  // Get the JSON and Query Params
   const json = await getJson("./ressources/json/fisheye-data.json");
   const queryParams = getQueryParams();
 
@@ -47,6 +49,7 @@ const main = async () => {
   console.log(photographersData);
   console.log(mediaData);
 
+  // Check if photographerId is set in URL
   if ("id" in queryParams) {
     const pageData = getPhotographerAndMedia({
       photographersData,
@@ -55,6 +58,7 @@ const main = async () => {
     });
     console.log(pageData);
 
+    // Get the mediasFactory in an array
     const medias = pageData.medias.map((media, index, mediaList) => {
       return MediaFactory({ ...media, mediaList, mediaIndex: index });
     });

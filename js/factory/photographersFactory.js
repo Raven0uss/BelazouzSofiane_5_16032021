@@ -17,6 +17,7 @@ const Photographers = function ({
   this.price = price;
   this.portrait = portrait;
 
+  // Create DOM of a Photographer
   const createPhotographerArticle = () => {
     const photographerArticle = document.createElement("article");
     photographerArticle.className = "photographer-container";
@@ -43,12 +44,14 @@ const Photographers = function ({
     return photographerArticle;
   };
 
+  // Add the photographer node to the DOM
   const addPhotographerArticle = () => {
     const photographerList = document.getElementById("photographer-list");
     const photographerArticle = createPhotographerArticle();
     photographerList.append(photographerArticle);
   };
 
+  // Function called when the instance is set
   const onCreate = (() => {
     addPhotographerArticle();
   })();

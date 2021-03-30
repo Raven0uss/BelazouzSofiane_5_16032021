@@ -27,8 +27,10 @@ const Media = function ({
   this.medias = mediaList;
   this.mediaIndex = mediaIndex;
 
+  // Determine type of media enum video or image
   this.type = isNil(image) ? "video" : "image";
 
+  // Function to go the next media inside lightbox
   this.nextMedia = () => {
     let nextMediaElement = null;
     if (this.medias.length === 0) return;
@@ -43,6 +45,7 @@ const Media = function ({
     return nextMediaElement;
   };
 
+  // Function to go the previous media inside lightbox
   this.prevMedia = () => {
     let prevMediaElement = null;
     if (this.medias.length === 0) return;
@@ -57,21 +60,25 @@ const Media = function ({
     return prevMediaElement;
   };
 
+  // Function to open the lightbox
   const openLightbox = () => {
     loadLightbox();
     loadMedia(this);
   };
 
+  // Function to close the lightbox
   const closeLightbox = () => {
     removeLightBox();
   };
 
+  // Function to update like
   const likeMedia = (likeValueNode) => {
     this.likes += 1;
     likeValueNode.innerText = this.likes;
     updateTotalLikeValue(1);
   };
 
+  // Create the Node of a Media
   const createMediaArticle = () => {
     const mediaArticle = document.createElement("article");
     mediaArticle.className = "media-container";
@@ -81,6 +88,7 @@ const Media = function ({
     }`;
     if (!imageExist(mediaPath)) return null;
 
+    // Generate HTML for an image or video
     const thumbnail = (() => {
       if (this.type === "image") {
         return `
@@ -99,6 +107,7 @@ const Media = function ({
 
     if (isNil(thumbnail)) return null;
 
+    // Generate HTML informations of media
     mediaArticle.innerHTML = `
         ${thumbnail}
         <div class="media-informations">
@@ -116,6 +125,7 @@ const Media = function ({
     return mediaArticle;
   };
 
+  // Add the events of a photography
   const addEventsMediaArticle = ({ mediaElement }) => {
     // Add Like
     const likeIcons = mediaElement.getElementsByClassName("like-button");
@@ -136,6 +146,7 @@ const Media = function ({
     });
   };
 
+  // Add the Node of a media to DOM
   const addMediaArticle = () => {
     const mediaList = document.getElementById("media-list-container");
     const mediaArticle = createMediaArticle();
@@ -144,6 +155,7 @@ const Media = function ({
     addEventsMediaArticle({ mediaElement: mediaArticle });
   };
 
+  // Update the total likes
   const updateTotalLikeValue = (toAdd) => {
     const totalLikeNode = document.getElementById("total-like-value");
     let totalLikes = parseInt(totalLikeNode.innerText, 10);
@@ -151,6 +163,7 @@ const Media = function ({
     totalLikeNode.innerText = totalLikes;
   };
 
+  // Function called when the instance is set
   const onCreate = (() => {
     addMediaArticle();
     updateTotalLikeValue(this.likes);

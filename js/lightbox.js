@@ -1,5 +1,14 @@
 import { onClick } from "./utils/onClick.js";
 
+// EventListner function to detect input on lightbox
+const eventKeydownLightbox = (e) => {
+  console.log(e);
+  if (e.key === "Escape") {
+    removeLightbox();
+  }
+};
+
+// Function to unfocus the elements when lightbox is open
 const unfocusElements = () => {
   const focusable = document.querySelectorAll(
     'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
@@ -7,6 +16,7 @@ const unfocusElements = () => {
   focusable.forEach((element) => element.setAttribute("tabindex", "-1"));
 };
 
+// Function to focus again the elements when lightbox is closed
 const focusElements = () => {
   const focusable = document.querySelectorAll(
     'button, [href], input, select, textarea, [tabindex="-1"]'
@@ -15,20 +25,17 @@ const focusElements = () => {
   focusable.forEach((element) => element.setAttribute("tabindex", "0"));
 };
 
-const addEventsLightbox = (lightbox) => {
-  console.log("wesh");
-  document.addEventListener("keydown", (e) => {
-    console.log(e);
-    if (e.key === "Escape") {
-      removeLightbox();
-    }
-  });
-  //   lightbox.focus();
-  //   lightbox.addEventListener("");
-  //   lightbox.addEventListener("");
-  //   lightbox.addEventListener("");
+// Function to remove the events when lightbox is closed
+const removeEventsLightbox = () => {
+  document.removeEventListener("keydown", eventKeydownLightbox);
 };
 
+// Function to add the events when lightbox is open
+const addEventsLightbox = (lightbox) => {
+  document.addEventListener("keydown", eventKeydownLightbox);
+};
+
+// Function to load the lightbox and display the media inside
 const loadLightbox = (media) => {
   const mainContainer = document.getElementById("photographer-page");
   const body = document.body;
@@ -49,6 +56,7 @@ const loadLightbox = (media) => {
   addEventsLightbox(lightbox);
 };
 
+// Function to delete on DOM the lightbox component
 const removeLightbox = () => {
   const mainContainer = document.getElementById("photographer-page");
   const body = document.body;
@@ -59,8 +67,10 @@ const removeLightbox = () => {
 
   lightbox.remove();
   focusElements();
+  removeEventsLightbox();
 };
 
+// Function which insert the DOM for the lightbox
 const loadMedia = (media) => {
   const lightbox = document.getElementById("lightbox-container");
   if (media.type === "image") {
