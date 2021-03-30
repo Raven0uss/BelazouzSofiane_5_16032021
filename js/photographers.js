@@ -3,6 +3,7 @@ import { getQueryParams } from "./utils/getQueryParams.js";
 import { getJson } from "./utils/getJson.js";
 import { PhotographersFactory } from "./factory/photographersFactory.js";
 import "./components/select.js";
+import { MediaFactory } from "./factory/mediaFactory.js";
 
 const getPhotographerAndMedia = ({ photographersData, mediaData, idProp }) => {
   const id = parseInt(idProp, 10);
@@ -23,11 +24,15 @@ const getPhotographerAndMedia = ({ photographersData, mediaData, idProp }) => {
     // redirect index page
     return;
   }
-  const medias = mediaData.filter((media) => media.photographerId === id);
+  const mediasPhotographer = mediaData.filter((media) => media.photographerId === id);
   if (isNil(mediaData)) {
     // redirect index page
     return;
   }
+
+  const medias = mediasPhotographer.map((media) => {
+    return MediaFactory(media);
+  })
 
   return {
     photographer: photographerData,
