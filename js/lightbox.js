@@ -75,9 +75,9 @@ const loadMedia = (media) => {
   const lightbox = document.getElementById("lightbox-container");
   if (media.type === "image") {
     lightbox.innerHTML = `
-    <div id="prev-arrow">Previous</div>
+    <div id="prev-arrow"><</div>
         <img src="./ressources/images/${media.image}" class="media-image" />
-        <div id="next-arrow">Next</div>
+        <div id="next-arrow">></div>
 
         `;
   } else if (media.type === "video") {
