@@ -46,9 +46,9 @@ const loadLightbox = (media) => {
   unfocusElements();
   const lightbox = document.createElement("div");
 
-  onClick(lightbox, () => {
-    removeLightbox();
-  });
+//   onClick(lightbox, () => {
+//     removeLightbox();
+//   });
 
   lightbox.id = "lightbox-container";
 
