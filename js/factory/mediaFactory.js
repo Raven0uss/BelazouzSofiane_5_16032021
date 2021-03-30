@@ -1,6 +1,7 @@
 import { isNil } from "../utils/ft_lodash.js";
 import { imageExist } from "../utils/checkImageExist.js";
 import { onClick } from "../utils/onClick.js";
+import { loadLightbox, loadMedia, removeLightbox } from "../lightbox.js";
 
 const Media = function ({
   id,
@@ -11,6 +12,8 @@ const Media = function ({
   likes,
   date,
   price,
+  mediaList,
+  mediaIndex,
 }) {
   this.id = id;
   this.photographerId = photographerId;
@@ -21,17 +24,47 @@ const Media = function ({
   this.date = date;
   this.price = price;
 
+  this.medias = mediaList;
+  this.mediaIndex = mediaIndex;
+
   this.type = isNil(image) ? "video" : "image";
 
-  const openLightbox = () => {
-    console.log(this.tags);
+  this.nextMedia = () => {
+    let nextMediaElement = null;
+    if (this.medias.length === 0) return;
+    if (this.medias.length === 1) {
+      nextMediaElement = this.medias[this.mediaIndex];
+    } else if (this.medias.length - 1 < mediaIndex) {
+      nextMediaElement = this.medias[0];
+    } else {
+      nextMediaElement = this.medias[this.mediaIndex + 1];
+    }
+    if (isNil(nextMediaElement)) return;
+    return nextMediaElement;
   };
 
-  const closeLightbox = () => {};
+  this.prevMedia = () => {
+    let prevMediaElement = null;
+    if (this.medias.length === 0) return;
+    if (this.medias.length === 1) {
+      prevMediaElement = this.medias[this.mediaIndex];
+    } else if (mediaIndex === 0) {
+      prevMediaElement = this.medias[this.medias.length - 1];
+    } else {
+      prevMediaElement = this.medias[this.mediaIndex + 1];
+    }
+    if (isNil(prevMediaElement)) return;
+    return prevMediaElement;
+  };
 
-  const nextMedia = () => {};
+  const openLightbox = () => {
+    loadLightbox();
+    loadMedia(this);
+  };
 
-  const prevMedia = () => {};
+  const closeLightbox = () => {
+    removeLightBox();
+  };
 
   const likeMedia = (likeValueNode) => {
     this.likes += 1;

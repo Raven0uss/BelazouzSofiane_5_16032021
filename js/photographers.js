@@ -24,15 +24,11 @@ const getPhotographerAndMedia = ({ photographersData, mediaData, idProp }) => {
     // redirect index page
     return;
   }
-  const mediasPhotographer = mediaData.filter((media) => media.photographerId === id);
+  const medias = mediaData.filter((media) => media.photographerId === id);
   if (isNil(mediaData)) {
     // redirect index page
     return;
   }
-
-  const medias = mediasPhotographer.map((media) => {
-    return MediaFactory(media);
-  })
 
   return {
     photographer: photographerData,
@@ -58,6 +54,10 @@ const main = async () => {
       idProp: queryParams.id,
     });
     console.log(pageData);
+
+    const medias = pageData.medias.map((media, index, mediaList) => {
+      return MediaFactory({ ...media, mediaList, mediaIndex: index });
+    });
   } else {
     // redirect index page
     return;
