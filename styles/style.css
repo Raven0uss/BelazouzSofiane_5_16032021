@@ -109,8 +109,7 @@ h2 {
       margin-top: -50px; } }
 #photographer-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 30%);
-  justify-content: space-between;
+  grid-template-columns: repeat(3, 1fr);
   margin-top: 110px; }
   #photographer-list .photographer-container {
     display: flex;
