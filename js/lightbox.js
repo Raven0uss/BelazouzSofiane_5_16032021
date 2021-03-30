@@ -15,6 +15,20 @@ const focusElements = () => {
   focusable.forEach((element) => element.setAttribute("tabindex", "0"));
 };
 
+const addEventsLightbox = (lightbox) => {
+  console.log("wesh");
+  document.addEventListener("keydown", (e) => {
+    console.log(e);
+    if (e.key === "Escape") {
+      removeLightbox();
+    }
+  });
+  //   lightbox.focus();
+  //   lightbox.addEventListener("");
+  //   lightbox.addEventListener("");
+  //   lightbox.addEventListener("");
+};
+
 const loadLightbox = (media) => {
   const mainContainer = document.getElementById("photographer-page");
   const body = document.body;
@@ -30,7 +44,9 @@ const loadLightbox = (media) => {
   });
 
   lightbox.id = "lightbox-container";
+
   body.insertBefore(lightbox, mainContainer);
+  addEventsLightbox(lightbox);
 };
 
 const removeLightbox = () => {
