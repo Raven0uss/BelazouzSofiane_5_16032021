@@ -1,4 +1,5 @@
 import { onClick } from "./utils/onClick.js";
+import { focusElements, unfocusElements } from "./utils/focus.js";
 
 let nextMedia = () => {};
 let prevMedia = () => {};
@@ -14,23 +15,6 @@ const eventKeydownLightbox = (e) => {
   if (e.key === "ArrowLeft") {
     prevMedia();
   }
-};
-
-// Function to unfocus the elements when lightbox is open
-const unfocusElements = () => {
-  const focusable = document.querySelectorAll(
-    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-  );
-  focusable.forEach((element) => element.setAttribute("tabindex", "-1"));
-};
-
-// Function to focus again the elements when lightbox is closed
-const focusElements = () => {
-  const focusable = document.querySelectorAll(
-    'button, [href], input, select, textarea, [tabindex="-1"]'
-  );
-  focusable.forEach((element) => element.removeAttribute("tabindex", "-1"));
-  focusable.forEach((element) => element.setAttribute("tabindex", "0"));
 };
 
 // Function to remove the events when lightbox is closed

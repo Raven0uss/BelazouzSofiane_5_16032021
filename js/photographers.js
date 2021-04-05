@@ -13,11 +13,6 @@ const getPhotographerAndMedia = ({ photographersData, mediaData, idProp }) => {
     return;
   }
 
-  console.log("--- Get Data Function --- ");
-  console.log(photographersData);
-  console.log(mediaData);
-  console.log(id);
-
   const photographerData = photographersData.find(
     (photographer) => photographer.id === id
   );
@@ -45,10 +40,6 @@ const main = async () => {
   const photographersData = get(json, "photographers", []);
   const mediaData = get(json, "media", []);
 
-  console.log(queryParams);
-  console.log(photographersData);
-  console.log(mediaData);
-
   // Check if photographerId is set in URL
   if ("id" in queryParams) {
     const pageData = getPhotographerAndMedia({
@@ -63,17 +54,14 @@ const main = async () => {
     });
 
     let rawMedias = pageData.medias;
-    console.log(rawMedias);
+    // If tag is set, filter the medias contain the tag
     if ("tag" in queryParams) {
       const { tag } = queryParams;
-      console.log(tag);
       rawMedias = rawMedias.filter((media) => {
-        console.log(media.tags, tag);
         return media.tags.includes(tag);
       });
     }
 
-    console.log(rawMedias);
     // Get the mediasFactory in an array
     const medias = rawMedias
       .map((media, index, mediaList) => {
@@ -97,8 +85,6 @@ const main = async () => {
         media.prevMedia = medias[index - 1];
       }
     });
-
-    console.log(medias);
   } else {
     // redirect index page
     return;

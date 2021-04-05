@@ -1,5 +1,6 @@
 import { formatTagToText } from "../utils/formatTagToText.js";
 import { getQueryParams } from "../utils/getQueryParams.js";
+import { addEventContactButton } from "../modal.js";
 
 const Photographers = function ({
   name,
@@ -86,7 +87,7 @@ const Photographers = function ({
           <p class="photographer-quote">${this.tagline}</p>
           ${photographerHeadTags}
         </div>
-      <button class="contact-btn" aria-label="Contact Me">
+      <button id="contact-btn" aria-label="Contact Me">
         Contactez-moi
       </button>
       <img
@@ -108,6 +109,7 @@ const Photographers = function ({
     photographerMain.prepend(photographerHeadContainer);
 
     addLinksTagsPhotographer();
+    addEventContactButton(this);
   };
 
   // Function called when the instance is set

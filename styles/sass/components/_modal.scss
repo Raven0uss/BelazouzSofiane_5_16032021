@@ -1,0 +1,111 @@
+#modal-background {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #c4c4c466;
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+
+  .modal {
+    width: 100%;
+    max-width: 669px;
+    height: calc(100% - 124px);
+    max-height: 900px;
+    background-color: $secondaryColor;
+    border-radius: 5px;
+    overflow-y: auto;
+    padding: 15px 35px;
+
+    display: flex;
+    flex-direction: column;
+
+    .head-modal {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      .modal-title {
+        font-size: 64px;
+        font-weight: 400;
+        line-height: 83.33px;
+        width: 75%;
+      }
+      #close-modal {
+        color: #fff;
+        font-size: 42px;
+        cursor: pointer;
+        transition-duration: 300ms;
+        height: 42px;
+
+        &:hover,
+        &:focus {
+          opacity: 0.8;
+        }
+      }
+    }
+
+    .input-modal {
+      width: calc(100% - 42px);
+      height: calc(68px - 50px);
+      border-radius: 5px;
+      border: none;
+      font-size: 36px;
+      line-height: 46.87px;
+      padding: 25px 21px;
+      font-family: "DM Sans";
+    }
+
+    .label-modal {
+      color: #312e2e;
+      font-size: 36px;
+      line-height: 46.87px;
+      font-weight: 400;
+    }
+
+    .textarea-modal {
+      width: calc(100% - 42px);
+      resize: none;
+      height: calc(170px - 50px);
+      border-radius: 5px;
+      border: none;
+      font-size: 36px;
+      line-height: 46.87px;
+      padding: 25px 21px;
+      font-family: "DM Sans";
+    }
+
+    #send-modal {
+      background-color: $primaryColor;
+      display: flex;
+      width: 170px;
+      height: 69px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      border: none;
+      color: #fff;
+      font-weight: 700;
+      font-size: 18px;
+      cursor: pointer;
+      transition-duration: 300ms;
+      margin-top: 26px;
+
+      &:hover,
+      &:focus {
+        opacity: 0.6;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 675px) {
+  #modal-background {
+    .modal {
+      height: 100%;
+      max-width: unset;
+    }
+  }
+}
