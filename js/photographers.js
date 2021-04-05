@@ -57,12 +57,27 @@ const main = async () => {
       idProp: queryParams.id,
     });
 
-    const photographer = PhotographersFactory({ ...pageData.photographer, page: "photographer" })
+    const photographer = PhotographersFactory({
+      ...pageData.photographer,
+      page: "photographer",
+    });
 
+    let rawMedias = pageData.medias;
+    console.log(rawMedias);
+    if ("tag" in queryParams) {
+      const { tag } = queryParams;
+      console.log(tag);
+      rawMedias = rawMedias.filter((media) => {
+        console.log(media.tags, tag);
+        return media.tags.includes(tag);
+      });
+    }
+
+    console.log(rawMedias);
     // Get the mediasFactory in an array
-    const medias = pageData.medias
+    const medias = rawMedias
       .map((media, index, mediaList) => {
-        return MediaFactory({ ...media, mediaList, mediaIndex: index,  });
+        return MediaFactory({ ...media, mediaList, mediaIndex: index });
       })
       .filter((media) => media !== null);
 

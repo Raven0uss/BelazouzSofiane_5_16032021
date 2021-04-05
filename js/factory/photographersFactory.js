@@ -1,3 +1,6 @@
+import { formatTagToText } from "../utils/formatTagToText.js";
+import { getQueryParams } from "../utils/getQueryParams.js";
+
 const Photographers = function ({
   name,
   id,
@@ -52,6 +55,18 @@ const Photographers = function ({
     photographerList.append(photographerArticle);
   };
 
+  // Add the link for the tags on <a> element tag on photographer.html
+  const addLinksTagsPhotographer = () => {
+    const queryParams = getQueryParams();
+    const { id } = queryParams;
+
+    const tagsElements = document.getElementsByClassName("tag");
+    Array.from(tagsElements).forEach((tagElement) => {
+      const tag = formatTagToText(tagElement.textContent);
+      tagElement.setAttribute("href", `photographer.html?id=${id}&tag=${tag}`);
+    });
+  };
+
   // Create DOM of a Photographer for photographer.html
   const createPhotographerHead = () => {
     const photographerHead = document.createElement("div");
@@ -91,6 +106,8 @@ const Photographers = function ({
     const photographerMain = document.getElementById("photographer-main");
     const photographerHeadContainer = createPhotographerHead();
     photographerMain.prepend(photographerHeadContainer);
+
+    addLinksTagsPhotographer();
   };
 
   // Function called when the instance is set
