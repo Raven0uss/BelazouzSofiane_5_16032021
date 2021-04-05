@@ -234,6 +234,7 @@ h2 {
     margin-bottom: -8px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+    z-index: 100;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -419,8 +420,39 @@ nav .tag, .photographer-tags-container .tag {
   justify-content: center;
   align-items: center; }
   #lightbox-container .media-image {
-    width: 80%;
-    height: 80%;
-    object-fit: contain; }
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+    margin-left: 2%;
+    margin-right: 2%; }
+  #lightbox-container #prev-arrow,
+  #lightbox-container #next-arrow {
+    color: #901C1C;
+    font-size: 36px;
+    cursor: pointer;
+    transition-duration: 300ms; }
+    #lightbox-container #prev-arrow:hover, #lightbox-container #prev-arrow:focus,
+    #lightbox-container #next-arrow:hover,
+    #lightbox-container #next-arrow:focus {
+      opacity: 0.8; }
+  #lightbox-container .lightbox-right-control {
+    display: flex;
+    flex-direction: column;
+    height: 70%; }
+    #lightbox-container .lightbox-right-control #close-lightbox {
+      color: #901C1C;
+      font-size: 36px;
+      order: 0;
+      position: absolute;
+      cursor: pointer;
+      transition-duration: 300ms; }
+      #lightbox-container .lightbox-right-control #close-lightbox:hover, #lightbox-container .lightbox-right-control #close-lightbox:focus {
+        opacity: 0.8; }
+    #lightbox-container .lightbox-right-control #next-arrow {
+      order: 1;
+      margin-top: auto;
+      margin-bottom: auto;
+      top: 0;
+      bottom: 0; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,10 +1,18 @@
 import { onClick } from "./utils/onClick.js";
 
+let nextMedia = () => {};
+let prevMedia = () => {};
+
 // EventListner function to detect input on lightbox
 const eventKeydownLightbox = (e) => {
-  console.log(e);
   if (e.key === "Escape") {
     removeLightbox();
+  }
+  if (e.key === "ArrowRight") {
+    nextMedia();
+  }
+  if (e.key === "ArrowLeft") {
+    prevMedia();
   }
 };
 
@@ -26,13 +34,29 @@ const focusElements = () => {
 };
 
 // Function to remove the events when lightbox is closed
-const removeEventsLightbox = () => {
+const removeEventsLightbox = (media) => {
   document.removeEventListener("keydown", eventKeydownLightbox);
 };
 
 // Function to add the events when lightbox is open
-const addEventsLightbox = (lightbox) => {
+const addEventsLightbox = (lightbox, media) => {
+  nextMedia = () => {
+    loadMedia(media.nextMedia);
+  };
+  prevMedia = () => {
+    loadMedia(media.prevMedia);
+  };
   document.addEventListener("keydown", eventKeydownLightbox);
+
+  const prevArrow = document.getElementById("prev-arrow");
+  const nextArrow = document.getElementById("next-arrow");
+  const closeLightbox = document.getElementById("close-lightbox");
+
+  onClick(prevArrow, () => prevMedia());
+  onClick(nextArrow, () => nextMedia());
+  onClick(closeLightbox, () => removeLightbox());
+
+  document.activeElement.blur();
 };
 
 // Function to load the lightbox and display the media inside
@@ -45,15 +69,9 @@ const loadLightbox = (media) => {
 
   unfocusElements();
   const lightbox = document.createElement("div");
-
-//   onClick(lightbox, () => {
-//     removeLightbox();
-//   });
-
   lightbox.id = "lightbox-container";
 
   body.insertBefore(lightbox, mainContainer);
-  addEventsLightbox(lightbox);
 };
 
 // Function to delete on DOM the lightbox component
@@ -75,13 +93,26 @@ const loadMedia = (media) => {
   const lightbox = document.getElementById("lightbox-container");
   if (media.type === "image") {
     lightbox.innerHTML = `
-    <div id="prev-arrow"><</div>
+      <i class="fas fa-chevron-left" id="prev-arrow" tabindex="0"></i>
         <img src="./ressources/images/${media.image}" class="media-image" />
-        <div id="next-arrow">></div>
-
+        <div class="lightbox-right-control">
+        <i class="fas fa-chevron-right" id="next-arrow" tabindex="0"></i>
+        <i class="fal fa-times" id="close-lightbox" tabindex="0"></i>
+        </div>
         `;
   } else if (media.type === "video") {
+    lightbox.innerHTML = `
+      <i class="fas fa-chevron-left" id="prev-arrow" tabindex="0"></i>
+      <video class="media-image" controls autoplay>
+        <source src="./ressources/images/${media.video}" type="video/mp4">
+      </video>
+      <div class="lightbox-right-control">
+        <i class="fas fa-chevron-right" id="next-arrow" tabindex="0"></i>
+        <i class="fal fa-times" id="close-lightbox" tabindex="0"></i>
+      </div>
+      `;
   }
+  addEventsLightbox(lightbox, media);
 };
 
 export { removeLightbox, loadLightbox, loadMedia };

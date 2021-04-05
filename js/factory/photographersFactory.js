@@ -7,6 +7,7 @@ const Photographers = function ({
   tagline,
   price,
   portrait,
+  page,
 }) {
   this.name = name;
   this.id = id;
@@ -51,9 +52,51 @@ const Photographers = function ({
     photographerList.append(photographerArticle);
   };
 
+  // Create DOM of a Photographer for photographer.html
+  const createPhotographerHead = () => {
+    const photographerHead = document.createElement("div");
+    photographerHead.id = "photographer-main-head-container";
+
+    let photographerHeadTags = '<div class="photographer-tags-container">';
+    for (let index = 0; index < this.tags.length; index++) {
+      const element = this.tags[index];
+
+      photographerHeadTags += `<a class="tag" tabindex="0"><span class="sr-only">#${element}</span>#${element}</a>`;
+    }
+    photographerHeadTags += "</div>";
+    photographerHead.innerHTML = `
+        <div class="photographer-informations">
+          <h1 class="photographer-name">${this.name}</h1>
+          <p class="photographer-location">${this.city}, ${this.country}</p>
+          <p class="photographer-quote">${this.tagline}</p>
+          ${photographerHeadTags}
+        </div>
+      <button class="contact-btn" aria-label="Contact Me">
+        Contactez-moi
+      </button>
+      <img
+        src="ressources/images/Photographers ID Photos/${this.portrait}"
+        class="photographer-image"
+      />
+      <div class="total-likes-and-price-container">
+        <div class="total-likes"><span id="total-like-value">0</span><i class="fas fa-heart"></i></div>
+        <p class="photographer-price">${this.price}€ / jour</p>
+      </div>
+    `;
+    return photographerHead;
+  };
+
+  // Add the photographer node to the DOM for photographer.html
+  const addHeadPhotographer = () => {
+    const photographerMain = document.getElementById("photographer-main");
+    const photographerHeadContainer = createPhotographerHead();
+    photographerMain.prepend(photographerHeadContainer);
+  };
+
   // Function called when the instance is set
   const onCreate = (() => {
-    addPhotographerArticle();
+    if (page === "index") addPhotographerArticle();
+    if (page === "photographer") addHeadPhotographer();
   })();
 };
 

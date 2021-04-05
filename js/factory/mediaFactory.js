@@ -24,45 +24,21 @@ const Media = function ({
   this.date = date;
   this.price = price;
 
-  this.medias = mediaList;
+  this.nextMedia = null;
+  this.prevMedia = null;
+
   this.mediaIndex = mediaIndex;
 
   // Determine type of media enum video or image
   this.type = isNil(image) ? "video" : "image";
 
-  // Function to go the next media inside lightbox
-  this.nextMedia = () => {
-    let nextMediaElement = null;
-    if (this.medias.length === 0) return;
-    if (this.medias.length === 1) {
-      nextMediaElement = this.medias[this.mediaIndex];
-    } else if (this.medias.length - 1 < mediaIndex) {
-      nextMediaElement = this.medias[0];
-    } else {
-      nextMediaElement = this.medias[this.mediaIndex + 1];
-    }
-    if (isNil(nextMediaElement)) return;
-    return nextMediaElement;
-  };
-
-  // Function to go the previous media inside lightbox
-  this.prevMedia = () => {
-    let prevMediaElement = null;
-    if (this.medias.length === 0) return;
-    if (this.medias.length === 1) {
-      prevMediaElement = this.medias[this.mediaIndex];
-    } else if (mediaIndex === 0) {
-      prevMediaElement = this.medias[this.medias.length - 1];
-    } else {
-      prevMediaElement = this.medias[this.mediaIndex + 1];
-    }
-    if (isNil(prevMediaElement)) return;
-    return prevMediaElement;
-  };
+  // If true, don't return the media factory
+  // (Reason are for exemple a media path incorrect)
+  this.toRemove = false;
 
   // Function to open the lightbox
   const openLightbox = () => {
-    loadLightbox();
+    loadLightbox(this);
     loadMedia(this);
   };
 
@@ -150,7 +126,10 @@ const Media = function ({
   const addMediaArticle = () => {
     const mediaList = document.getElementById("media-list-container");
     const mediaArticle = createMediaArticle();
-    if (isNil(mediaArticle)) return null;
+    if (isNil(mediaArticle)) {
+      this.toRemove = true;
+      return null;
+    }
     mediaList.append(mediaArticle);
     addEventsMediaArticle({ mediaElement: mediaArticle });
   };
@@ -170,6 +149,10 @@ const Media = function ({
   })();
 };
 
-const MediaFactory = (props) => new Media(props);
+const MediaFactory = (props) => {
+  const media = new Media(props);
+  if (media.toRemove) return null;
+  return media;
+};
 
 export { MediaFactory };

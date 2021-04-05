@@ -16,15 +16,17 @@ const main = async () => {
   const mediaData = get(json, "media", []);
 
   const photographers = photographersData
-    .filter((photographer) => { // Filter Data if a tag has been selected
+    .filter((photographer) => {
+      // Filter Data if a tag has been selected
       if ("tag" in queryParams && "tags" in photographer) {
         const { tag } = queryParams;
         return photographer.tags.includes(tag);
       }
       return true;
     })
-    .map((photographer) => { // Return the photographersFactory of each element
-      return PhotographersFactory(photographer);
+    .map((photographer) => {
+      // Return the photographersFactory of each element
+      return PhotographersFactory({ ...photographer, page: "index" });
     });
 };
 

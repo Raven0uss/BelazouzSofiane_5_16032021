@@ -11,8 +11,49 @@
   align-items: center;
 
   .media-image {
-    width: 80%;
-    height: 80%;
+    width: 70%;
+    height: 70%;
     object-fit: contain;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+
+  #prev-arrow,
+  #next-arrow {
+    color: $primaryColor;
+    font-size: 36px;
+    cursor: pointer;
+    transition-duration: 300ms;
+
+    &:hover,
+    &:focus {
+      opacity: 0.8;
+    }
+  }
+
+  .lightbox-right-control {
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    #close-lightbox {
+      color: $primaryColor;
+      font-size: 36px;
+      order: 0;
+      position: absolute;
+      cursor: pointer;
+      transition-duration: 300ms;
+
+      &:hover,
+      &:focus {
+        opacity: 0.8;
+      }
+    }
+    #next-arrow {
+      order: 1;
+      margin-top: auto;
+      margin-bottom: auto;
+      top: 0;
+      bottom: 0;
+    }
   }
 }

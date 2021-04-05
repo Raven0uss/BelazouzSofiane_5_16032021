@@ -56,12 +56,34 @@ const main = async () => {
       mediaData,
       idProp: queryParams.id,
     });
-    console.log(pageData);
+
+    const photographer = PhotographersFactory({ ...pageData.photographer, page: "photographer" })
 
     // Get the mediasFactory in an array
-    const medias = pageData.medias.map((media, index, mediaList) => {
-      return MediaFactory({ ...media, mediaList, mediaIndex: index });
+    const medias = pageData.medias
+      .map((media, index, mediaList) => {
+        return MediaFactory({ ...media, mediaList, mediaIndex: index,  });
+      })
+      .filter((media) => media !== null);
+
+    const mediasLength = medias.length;
+
+    medias.forEach((media, index) => {
+      if (index === 0) {
+        media.prevMedia = medias[mediasLength - 1];
+      }
+      if (index === mediasLength - 1) {
+        media.nextMedia = medias[0];
+      }
+      if (isNil(media.nextMedia)) {
+        media.nextMedia = medias[index + 1];
+      }
+      if (isNil(media.prevMedia)) {
+        media.prevMedia = medias[index - 1];
+      }
     });
+
+    console.log(medias);
   } else {
     // redirect index page
     return;
