@@ -55,7 +55,8 @@ h2 {
       margin-left: auto;
       margin-right: auto;
       display: flex;
-      flex-wrap: wrap; }
+      flex-wrap: wrap;
+      z-index: 20; }
   #index-page #index-main {
     grid-area: 2 / 1 / 3 / 4; }
     #index-page #index-main #index-title {
@@ -454,5 +455,24 @@ nav .tag, .photographer-tags-container .tag {
       margin-bottom: auto;
       top: 0;
       bottom: 0; }
+
+#scrollTopButton {
+  width: 182px;
+  height: 30px;
+  z-index: 4000;
+  background-color: #d3573c;
+  color: #000;
+  position: fixed;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  margin-top: 6px;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700; }
 
 /*# sourceMappingURL=style.css.map */

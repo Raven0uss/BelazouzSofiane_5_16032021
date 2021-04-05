@@ -112,7 +112,9 @@ const Photographers = function ({
 
   // Function called when the instance is set
   const onCreate = (() => {
-    if (page === "index") addPhotographerArticle();
+    if (page === "index") {
+      addPhotographerArticle();
+    }
     if (page === "photographer") addHeadPhotographer();
   })();
 };
