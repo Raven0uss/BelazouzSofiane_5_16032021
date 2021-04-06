@@ -20,6 +20,12 @@ const getInputsContent = () => {
   };
 };
 
+const escapeKeydownModal = (e) => {
+  if (e.key === "Escape") {
+    removeModal();
+  }
+};
+
 const removeModal = () => {
   const mainContainer = document.getElementById("photographer-page");
   const body = document.body;
@@ -27,6 +33,8 @@ const removeModal = () => {
 
   mainContainer.style.overflow = "initial";
   body.style.overflow = "initial";
+
+  document.removeEventListener("keydown", escapeKeydownModal);
 
   modal.remove();
   focusElements();
@@ -50,6 +58,8 @@ const addEventsModal = (modalBackground) => {
     sendForm();
     removeModal();
   });
+
+  document.addEventListener("keydown", escapeKeydownModal);
 };
 
 const createModal = (photographer) => {
@@ -97,11 +107,12 @@ const addEventContactButton = (photographer) => {
   const contactButton = document.getElementById("contact-btn");
 
   onClick(contactButton, () => {
+    document.activeElement.blur();
     unfocusElements();
     createModal(photographer);
   });
 
-  contactButton.click();
+  // contactButton.click();
 };
 
 export { addEventContactButton };
