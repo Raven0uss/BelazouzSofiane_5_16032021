@@ -9,21 +9,18 @@ import { selectButtonEvent } from "./components/select.js";
 const getPhotographerAndMedia = ({ photographersData, mediaData, idProp }) => {
   const id = parseInt(idProp, 10);
   if (id === NaN || isNil(id)) {
-    // redirect index page
-    return;
+    return null;
   }
 
   const photographerData = photographersData.find(
     (photographer) => photographer.id === id
   );
   if (isNil(photographerData)) {
-    // redirect index page
-    return;
+    return null;
   }
   const medias = mediaData.filter((media) => media.photographerId === id);
   if (isNil(mediaData)) {
-    // redirect index page
-    return;
+    return null;
   }
 
   return {
@@ -47,6 +44,11 @@ const main = async () => {
       mediaData,
       idProp: queryParams.id,
     });
+
+    if (isNil(pageData)) {
+      // redirect index page
+      return;
+    }
 
     const photographer = PhotographersFactory({
       ...pageData.photographer,
