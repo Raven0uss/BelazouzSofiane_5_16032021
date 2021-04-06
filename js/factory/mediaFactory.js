@@ -1,7 +1,7 @@
 import { isNil } from "../utils/ft_lodash.js";
 import { imageExist } from "../utils/checkImageExist.js";
 import { onClick } from "../utils/onClick.js";
-import { loadLightbox, loadMedia, removeLightbox } from "../lightbox.js";
+import { loadLightbox, loadMedia, removeLightbox } from "../components/lightbox.js";
 
 const Media = function ({
   id,

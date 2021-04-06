@@ -1,6 +1,6 @@
 import { formatTagToText } from "../utils/formatTagToText.js";
 import { getQueryParams } from "../utils/getQueryParams.js";
-import { addEventContactButton } from "../modal.js";
+import { addEventContactButton } from "../components/modal.js";
 
 const Photographers = function ({
   name,

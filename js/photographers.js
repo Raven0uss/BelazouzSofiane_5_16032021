@@ -2,7 +2,6 @@ import { get, isNil } from "./utils/ft_lodash.js";
 import { getQueryParams } from "./utils/getQueryParams.js";
 import { getJson } from "./utils/getJson.js";
 import { PhotographersFactory } from "./factory/photographersFactory.js";
-import "./components/select.js";
 import { MediaFactory } from "./factory/mediaFactory.js";
 import { selectButtonEvent } from "./components/select.js";
 

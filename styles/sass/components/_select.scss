@@ -33,9 +33,6 @@
     cursor: pointer;
   }
 
-  #select-menu {
-  }
-
   .select-separator {
     width: 90%;
     height: 1px;
@@ -43,8 +40,7 @@
     align-self: center;
   }
 
-  // CLOSE
-
+  // CLOSE STATE
   .select-button-close {
     border-radius: 5px;
     height: 69px;
@@ -72,7 +68,7 @@
     z-index: 5;
   }
 
-  // OPEN
+  // OPEN STATE
   .select-button-open {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;

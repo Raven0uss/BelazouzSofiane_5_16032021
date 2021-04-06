@@ -1,5 +1,5 @@
-import { onClick } from "./utils/onClick.js";
-import { focusElements, unfocusElements } from "./utils/focus.js";
+import { onClick } from "../utils/onClick.js";
+import { focusElements, unfocusElements } from "../utils/focus.js";
 
 let nextMedia = () => {};
 let prevMedia = () => {};
