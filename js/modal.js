@@ -30,6 +30,7 @@ const removeModal = () => {
   const mainContainer = document.getElementById("photographer-page");
   const body = document.body;
   const modal = document.getElementById("modal-background");
+  const button = document.getElementById("contact-btn");
 
   mainContainer.style.overflow = "initial";
   body.style.overflow = "initial";
@@ -38,6 +39,7 @@ const removeModal = () => {
 
   modal.remove();
   focusElements();
+  button.focus();
 };
 
 const sendForm = () => {
@@ -106,7 +108,7 @@ const closeModal = () => {
 const addEventContactButton = (photographer) => {
   const contactButton = document.getElementById("contact-btn");
 
-  onClick(contactButton, () => {
+  contactButton.addEventListener("click", () => {
     document.activeElement.blur();
     unfocusElements();
     createModal(photographer);
