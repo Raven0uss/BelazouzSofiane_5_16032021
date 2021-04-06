@@ -55,6 +55,7 @@
       .photographer-quote {
         margin-top: 19px;
         font-size: 18px;
+        color: #757575;
       }
 
       .photographer-tags-container {
@@ -161,7 +162,8 @@
 
         cursor: pointer;
 
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
           opacity: 0.8;
           transition-duration: 300ms;
         }

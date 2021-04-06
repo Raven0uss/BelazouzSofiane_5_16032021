@@ -4,6 +4,7 @@ import { getJson } from "./utils/getJson.js";
 import { PhotographersFactory } from "./factory/photographersFactory.js";
 import "./components/select.js";
 import { MediaFactory } from "./factory/mediaFactory.js";
+import { selectButtonEvent } from "./components/select.js";
 
 // Function which return the data filtered for the DOM
 const getPhotographerAndMedia = ({ photographersData, mediaData, idProp }) => {
@@ -85,6 +86,8 @@ const main = async () => {
         media.prevMedia = medias[index - 1];
       }
     });
+
+    selectButtonEvent();
   } else {
     // redirect index page
     return;
