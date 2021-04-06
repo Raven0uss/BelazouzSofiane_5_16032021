@@ -1,5 +1,5 @@
 #label-select-order {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 #select-wrapper {
@@ -95,6 +95,14 @@
     padding-top: 14px;
     padding-bottom: 14px;
     padding-left: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition-duration: 300ms;
+    &:focus,
+    &:hover {
+      background-color: $secondaryColor;
+      color: #000;
+    }
   }
 }
 
