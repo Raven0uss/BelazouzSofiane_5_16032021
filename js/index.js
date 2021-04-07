@@ -13,13 +13,12 @@ const addButtonScrollTop = () => {
   const button = document.createElement("a");
   button.id = "scrollTopButton";
   button.setAttribute("href", "#index-page");
-  button.innerText = "Passer au contenu"
-  
+  button.innerText = "Passer au contenu";
+
   const main = document.body;
-  
+
   main.prepend(button);
 };
-
 
 // Function which add the event listener to detect if the user has scrolled the page
 const scrollListener = () => {
@@ -43,9 +42,8 @@ const main = async () => {
   const queryParams = getQueryParams();
 
   const photographersData = get(json, "photographers", []);
-  const mediaData = get(json, "media", []);
 
-  const photographers = photographersData
+  photographersData
     .filter((photographer) => {
       // Filter Data if a tag has been selected
       if ("tag" in queryParams && "tags" in photographer) {

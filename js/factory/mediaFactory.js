@@ -1,11 +1,7 @@
 import { isNil } from "../utils/ft_lodash.js";
 import { imageExist } from "../utils/checkImageExist.js";
 import { onClick } from "../utils/onClick.js";
-import {
-  loadLightbox,
-  loadMedia,
-  removeLightbox,
-} from "../components/lightbox.js";
+import { loadLightbox, loadMedia } from "../components/lightbox.js";
 
 const Media = function ({
   id,
@@ -16,7 +12,6 @@ const Media = function ({
   likes,
   date,
   price,
-  mediaList,
   mediaIndex,
 }) {
   this.id = id;
@@ -45,11 +40,6 @@ const Media = function ({
   const openLightbox = () => {
     loadLightbox(this);
     loadMedia(this);
-  };
-
-  // Function to close the lightbox
-  const closeLightbox = () => {
-    removeLightBox();
   };
 
   // Function to update like
@@ -153,7 +143,7 @@ const Media = function ({
   };
 
   // Function called when the instance is set
-  const onCreate = (() => {
+  (() => {
     addMediaArticle();
     updateTotalLikeValue(this.likes);
   })();

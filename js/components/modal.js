@@ -26,6 +26,7 @@ const escapeKeydownModal = (e) => {
   }
 };
 
+// Remove modal from DOM and enable back the accessibility for the page
 const removeModal = () => {
   const mainContainer = document.getElementById("photographer-page");
   const body = document.body;
@@ -48,7 +49,7 @@ const sendForm = () => {
   console.log(inputsData);
 };
 
-const addEventsModal = (modalBackground) => {
+const addEventsModal = () => {
   const sendButton = document.getElementById("send-modal");
   const closeButton = document.getElementById("close-modal");
 
@@ -97,11 +98,6 @@ const createModal = (photographer) => {
   `;
 
   addEventsModal(modalBackground);
-};
-
-// Remove modal from DOM and enable back the accessibility for the page
-const closeModal = () => {
-  focusElements();
 };
 
 // Add the event onclick and onfocus for the contact button to open modal

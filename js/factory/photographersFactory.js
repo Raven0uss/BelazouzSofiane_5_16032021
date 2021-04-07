@@ -29,7 +29,7 @@ const Photographers = function ({
     photographerArticle.innerHTML = `
         <a class="photographer-box" href="./photographer.html?id=${this.id}">
             <img
-              src="./ressources/images/Photographers\ ID\ Photos/${this.portrait}"
+              src="./ressources/images/Photographers ID Photos/${this.portrait}"
               alt="${this.name}"
               class="photographer-portrait"
             />
@@ -113,7 +113,7 @@ const Photographers = function ({
   };
 
   // Function called when the instance is set
-  const onCreate = (() => {
+  (() => {
     if (page === "index") {
       addPhotographerArticle();
     }

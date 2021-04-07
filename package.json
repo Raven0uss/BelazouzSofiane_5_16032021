@@ -1,0 +1,22 @@
+{
+  "name": "belazouzsofiane_5_16032021",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Raven0uss/BelazouzSofiane_5_16032021.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Raven0uss/BelazouzSofiane_5_16032021/issues"
+  },
+  "homepage": "https://github.com/Raven0uss/BelazouzSofiane_5_16032021#readme",
+  "devDependencies": {
+    "eslint": "^7.23.0"
+  }
+}

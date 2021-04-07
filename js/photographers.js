@@ -10,7 +10,7 @@ import { chainingMedias } from "./utils/chainingMedias.js";
 // Function which return the data filtered for the DOM
 const getPhotographerAndMedia = ({ photographersData, mediaData, idProp }) => {
   const id = parseInt(idProp, 10);
-  if (id === NaN || isNil(id)) {
+  if (isNaN(id) || isNil(id)) {
     return null;
   }
 
@@ -52,7 +52,7 @@ const main = async () => {
       return;
     }
 
-    const photographer = PhotographersFactory({
+    PhotographersFactory({
       ...pageData.photographer,
       page: "photographer",
     });

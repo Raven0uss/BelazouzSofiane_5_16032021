@@ -25,15 +25,13 @@ const sortByDate = (medias) => {
     const aDate = new Date(a.date);
     const bDate = new Date(b.date);
 
-    return (aDate > bDate ? -1 : 1)
+    return aDate > bDate ? -1 : 1;
   });
   chainingMedias(medias);
   reloadMedias(medias);
 };
 
 const sortMedias = (medias, sortBy) => {
-  let list = document.querySelector("#media-list-container");
-
   switch (sortBy) {
     case "Popularité":
       sortByPopularity(medias);

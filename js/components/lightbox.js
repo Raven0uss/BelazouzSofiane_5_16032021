@@ -18,7 +18,7 @@ const eventKeydownLightbox = (e) => {
 };
 
 // Function to remove the events when lightbox is closed
-const removeEventsLightbox = (media) => {
+const removeEventsLightbox = () => {
   document.removeEventListener("keydown", eventKeydownLightbox);
 };
 
@@ -44,7 +44,7 @@ const addEventsLightbox = (lightbox, media) => {
 };
 
 // Function to load the lightbox and display the media inside
-const loadLightbox = (media) => {
+const loadLightbox = () => {
   const mainContainer = document.getElementById("photographer-page");
   const body = document.body;
 
