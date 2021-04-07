@@ -74,8 +74,8 @@ const main = async () => {
       })
       .filter((media) => media !== null);
 
+    // Function to create a chaining list with media to prepare the navigation in lightbox
     chainingMedias(medias);
-
     selectButtonEvent(medias);
   } else {
     redirectUrl("index.html");
