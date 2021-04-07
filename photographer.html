@@ -27,16 +27,16 @@
         <label id="label-select-order" for="select-wrapper">Trier par</label>
 
         <div id="select-wrapper">
-          <button id="select-button" class="select-button-close">
+          <button id="select-button" class="select-button-close" role="button" aria-haspopup="listbox" aria-expanded="false">
             Popularité
             <i class="fas fa-chevron-up select-up"></i>
             <i class="fas fa-chevron-down select-down"></i>
           </button>
           <ul id="select-menu" class="select-menu-close">
             <div class="select-separator"></div>
-            <li class="select-element" tabindex="0">Date</li>
+            <li class="select-element" tabindex="0" role="listbox">Date</li>
             <div class="select-separator"></div>
-            <li class="select-element" tabindex="0">Titre</li>
+            <li class="select-element" tabindex="0" role="listbox">Titre</li>
           </ul>
         </div>
 

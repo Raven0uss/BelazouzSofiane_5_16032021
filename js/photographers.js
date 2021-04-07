@@ -5,6 +5,7 @@ import { PhotographersFactory } from "./factory/photographersFactory.js";
 import { MediaFactory } from "./factory/mediaFactory.js";
 import { selectButtonEvent } from "./components/select.js";
 import { redirectUrl } from "./utils/redirectUrl.js";
+import { chainingMedias } from "./utils/chainingMedias.js";
 
 // Function which return the data filtered for the DOM
 const getPhotographerAndMedia = ({ photographersData, mediaData, idProp }) => {
@@ -58,6 +59,7 @@ const main = async () => {
 
     let rawMedias = pageData.medias;
     // If tag is set, filter the medias contain the tag
+    rawMedias.sort((a, b) => b.likes - a.likes);
     if ("tag" in queryParams) {
       const { tag } = queryParams;
       rawMedias = rawMedias.filter((media) => {
@@ -72,24 +74,9 @@ const main = async () => {
       })
       .filter((media) => media !== null);
 
-    const mediasLength = medias.length;
+    chainingMedias(medias);
 
-    medias.forEach((media, index) => {
-      if (index === 0) {
-        media.prevMedia = medias[mediasLength - 1];
-      }
-      if (index === mediasLength - 1) {
-        media.nextMedia = medias[0];
-      }
-      if (isNil(media.nextMedia)) {
-        media.nextMedia = medias[index + 1];
-      }
-      if (isNil(media.prevMedia)) {
-        media.prevMedia = medias[index - 1];
-      }
-    });
-
-    selectButtonEvent();
+    selectButtonEvent(medias);
   } else {
     redirectUrl("index.html");
     return;

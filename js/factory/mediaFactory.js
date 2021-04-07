@@ -1,7 +1,11 @@
 import { isNil } from "../utils/ft_lodash.js";
 import { imageExist } from "../utils/checkImageExist.js";
 import { onClick } from "../utils/onClick.js";
-import { loadLightbox, loadMedia, removeLightbox } from "../components/lightbox.js";
+import {
+  loadLightbox,
+  loadMedia,
+  removeLightbox,
+} from "../components/lightbox.js";
 
 const Media = function ({
   id,
@@ -31,6 +35,7 @@ const Media = function ({
 
   // Determine type of media enum video or image
   this.type = isNil(image) ? "video" : "image";
+  this.title = this.type === "image" ? image : video;
 
   // If true, don't return the media factory
   // (Reason are for exemple a media path incorrect)
@@ -140,6 +145,11 @@ const Media = function ({
     let totalLikes = parseInt(totalLikeNode.innerText, 10);
     totalLikes += toAdd;
     totalLikeNode.innerText = totalLikes;
+  };
+
+  this.createMedia = function () {
+    addMediaArticle();
+    updateTotalLikeValue(this.likes);
   };
 
   // Function called when the instance is set

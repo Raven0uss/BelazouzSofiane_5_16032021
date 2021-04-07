@@ -226,7 +226,8 @@ h2 {
     object-fit: cover;
     border-radius: 50%;
     justify-self: end;
-    align-self: center; }
+    align-self: center;
+    box-shadow: 0px 4px 12px #00000040; }
   #photographer-main #photographer-main-head-container .total-likes-and-price-container {
     position: fixed;
     background-color: #d3573c;
