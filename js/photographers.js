@@ -4,6 +4,7 @@ import { getJson } from "./utils/getJson.js";
 import { PhotographersFactory } from "./factory/photographersFactory.js";
 import { MediaFactory } from "./factory/mediaFactory.js";
 import { selectButtonEvent } from "./components/select.js";
+import { redirectUrl } from "./utils/redirectUrl.js";
 
 // Function which return the data filtered for the DOM
 const getPhotographerAndMedia = ({ photographersData, mediaData, idProp }) => {
@@ -46,7 +47,7 @@ const main = async () => {
     });
 
     if (isNil(pageData)) {
-      // redirect index page
+      redirectUrl("index.html");
       return;
     }
 
@@ -90,7 +91,7 @@ const main = async () => {
 
     selectButtonEvent();
   } else {
-    // redirect index page
+    redirectUrl("index.html");
     return;
   }
 };
