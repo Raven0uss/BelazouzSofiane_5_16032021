@@ -24,19 +24,48 @@
         </a>
       </header>
       <main id="photographer-main">
-        <label id="label-select-order" for="select-wrapper">Trier par</label>
+        <label id="label-select-order" for="select-button">Trier par</label>
 
         <div id="select-wrapper">
-          <button id="select-button" class="select-button-close" role="button" aria-haspopup="listbox" aria-expanded="false">
+          <button
+            id="select-button"
+            class="select-button-close"
+            role="button"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+            aria-labelledby="label-select-order"
+          >
             Popularité
-            <i class="fas fa-chevron-up select-up"></i>
-            <i class="fas fa-chevron-down select-down"></i>
+            <span class="fas fa-chevron-up select-up"></span>
+            <span class="fas fa-chevron-down select-down"></span>
           </button>
-          <ul id="select-menu" class="select-menu-close">
-            <div class="select-separator"></div>
-            <li class="select-element" tabindex="0" role="listbox">Date</li>
-            <div class="select-separator"></div>
-            <li class="select-element" tabindex="0" role="listbox">Titre</li>
+          <ul
+            id="select-menu"
+            class="select-menu-close"
+            role="listbox"
+            aria-activedescendant="order-0"
+          >
+            <dl
+              class="select-separator element-selected"
+              id="order-0-separator"
+            ></dl>
+            <li
+              class="select-element element-selected"
+              id="order-0"
+              tabindex="0"
+              role="option"
+              aria-selected="true"
+            >
+              Popularité
+            </li>
+            <dl class="select-separator" id="order-1-separator"></dl>
+            <li class="select-element" tabindex="0" role="option" id="order-1">
+              Date
+            </li>
+            <dl class="select-separator" id="order-2-separator"></dl>
+            <li class="select-element" tabindex="0" role="option" id="order-2">
+              Titre
+            </li>
           </ul>
         </div>
 

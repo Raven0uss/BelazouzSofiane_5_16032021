@@ -97,7 +97,6 @@
       justify-self: end;
       align-self: center;
       box-shadow: 0px 4px 12px #00000040;
-
     }
 
     .total-likes-and-price-container {
@@ -214,6 +213,10 @@
       }
     }
   }
+}
+
+#photographer-main #media-list-container[class="media-list-sideview"] {
+  grid-template-columns: repeat(auto-fit, 45%);
 }
 
 @media screen and (max-width: 1024px) {
@@ -372,6 +375,10 @@
           }
         }
       }
+    }
+
+    #media-list-container[class="media-list-sideview"] {
+      grid-template-columns: repeat(auto-fit, 100%);
     }
   }
 }

@@ -7,6 +7,12 @@ import { selectButtonEvent } from "./components/select.js";
 import { redirectUrl } from "./utils/redirectUrl.js";
 import { chainingMedias } from "./utils/chainingMedias.js";
 
+// For two elements, the view is sided for 2 photos side by side
+const displayAsSideView = () => {
+  const mediaList = document.getElementById("media-list-container");
+  mediaList.className = "media-list-sideview";
+};
+
 // Function which return the data filtered for the DOM
 const getPhotographerAndMedia = ({ photographersData, mediaData, idProp }) => {
   const id = parseInt(idProp, 10);
@@ -77,6 +83,10 @@ const main = async () => {
     // Function to create a chaining list with media to prepare the navigation in lightbox
     chainingMedias(medias);
     selectButtonEvent(medias);
+
+    if (medias.length === 2) {
+      displayAsSideView();
+    }
   } else {
     redirectUrl("index.html");
     return;

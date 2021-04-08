@@ -13,6 +13,7 @@ const Media = function ({
   date,
   price,
   mediaIndex,
+  description
 }) {
   this.id = id;
   this.photographerId = photographerId;
@@ -22,6 +23,7 @@ const Media = function ({
   this.likes = likes;
   this.date = date;
   this.price = price;
+  this.description = description;
 
   this.nextMedia = null;
   this.prevMedia = null;
@@ -63,11 +65,11 @@ const Media = function ({
     const thumbnail = (() => {
       if (this.type === "image") {
         return `
-        <img src="${mediaPath}" class="media-thumbnail" tabindex="0" />
+        <img src="${mediaPath}" class="media-thumbnail" tabindex="0" alt="${this.description}" />
         `;
       } else if (this.type === "video") {
         return `
-        <video class="media-thumbnail" preload="metadata" tabindex="0">
+        <video class="media-thumbnail" preload="metadata" tabindex="0" alt="${this.description}">
             <source src="${mediaPath}#t=0.5" type="video/mp4">
         </video>
         `;
@@ -89,7 +91,7 @@ const Media = function ({
         <div class="media-likes">
           <span class="like-value">${
             this.likes
-          }</span><i class="fas fa-heart like-button" tabindex="0"></i>
+          }</span><span class="fas fa-heart like-button" tabindex="0" aria-label="likes"></span>
         </div>
       </div>
     `;

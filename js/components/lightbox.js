@@ -54,6 +54,7 @@ const loadLightbox = () => {
   unfocusElements();
   const lightbox = document.createElement("div");
   lightbox.id = "lightbox-container";
+  lightbox.setAttribute("aria-label", "image closeup view");
 
   body.insertBefore(lightbox, mainContainer);
 };
@@ -77,22 +78,22 @@ const loadMedia = (media) => {
   const lightbox = document.getElementById("lightbox-container");
   if (media.type === "image") {
     lightbox.innerHTML = `
-      <i class="fas fa-chevron-left" id="prev-arrow" tabindex="0"></i>
-        <img src="./ressources/images/${media.image}" class="media-image" />
+      <span class="fas fa-chevron-left" id="prev-arrow" tabindex="0" aria-label="Previous image"></span>
+        <img src="./ressources/images/${media.image}" class="media-image" alt="${media.description}" />
         <div class="lightbox-right-control">
-        <i class="fas fa-chevron-right" id="next-arrow" tabindex="0"></i>
-        <i class="fal fa-times" id="close-lightbox" tabindex="0"></i>
+        <span class="fas fa-chevron-right" id="next-arrow" tabindex="0" aria-label="Next image"></span>
+        <span class="fal fa-times" id="close-lightbox" tabindex="0" aria-label="Close dialog"></span>
         </div>
         `;
   } else if (media.type === "video") {
     lightbox.innerHTML = `
-      <i class="fas fa-chevron-left" id="prev-arrow" tabindex="0"></i>
-      <video class="media-image" controls autoplay>
+      <span class="fas fa-chevron-left" id="prev-arrow" tabindex="0" aria-label="Previous image"></span>
+      <video class="media-image" controls autoplay alt="${media.description}">
         <source src="./ressources/images/${media.video}" type="video/mp4">
       </video>
       <div class="lightbox-right-control">
-        <i class="fas fa-chevron-right" id="next-arrow" tabindex="0"></i>
-        <i class="fal fa-times" id="close-lightbox" tabindex="0"></i>
+        <span class="fas fa-chevron-right" id="next-arrow" tabindex="0" aria-label="Next image"></span>
+        <span class="fal fa-times" id="close-lightbox" tabindex="0" aria-label="Close dialog"></span>
       </div>
       `;
   }

@@ -43,7 +43,7 @@ const Photographers = function ({
     photographerTagContainer.className = "tag-container";
     this.tags.forEach(
       (tag) =>
-        (photographerTagContainer.innerHTML += `<a class="tag"><span class="sr-only">#${tag}</span>#${tag}</a>`)
+        (photographerTagContainer.innerHTML += `<a class="tag" aria-label="Tag"><span class="sr-only">#${tag}</span>#${tag}</a>`)
     );
     photographerArticle.appendChild(photographerTagContainer);
     return photographerArticle;
@@ -77,7 +77,7 @@ const Photographers = function ({
     for (let index = 0; index < this.tags.length; index++) {
       const element = this.tags[index];
 
-      photographerHeadTags += `<a class="tag" tabindex="0"><span class="sr-only">#${element}</span>#${element}</a>`;
+      photographerHeadTags += `<a class="tag" tabindex="0" aria-label="Tag"><span class="sr-only">#${element}</span>#${element}</a>`;
     }
     photographerHeadTags += "</div>";
     photographerHead.innerHTML = `
@@ -93,9 +93,10 @@ const Photographers = function ({
       <img
         src="ressources/images/Photographers ID Photos/${this.portrait}"
         class="photographer-image"
+        alt=""
       />
       <div class="total-likes-and-price-container">
-        <div class="total-likes"><span id="total-like-value">0</span><i class="fas fa-heart"></i></div>
+        <div class="total-likes"><span id="total-like-value">0</span><span class="fas fa-heart"></span></div>
         <p class="photographer-price">${this.price}€ / jour</p>
       </div>
     `;

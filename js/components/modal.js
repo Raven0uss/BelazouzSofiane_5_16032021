@@ -78,20 +78,20 @@ const createModal = (photographer) => {
   body.insertBefore(modalBackground, mainContainer);
 
   modalBackground.innerHTML = `
-    <div class="modal">
+    <div class="modal" aria-label="Contact me Mimi Keel" aria-labelledby="contact-title">
       <div class="head-modal">
-        <h1 class="modal-title">Contactez-moi<br />${photographer.name}</h1>
-        <i class="fal fa-times" id="close-modal" tabindex="0" aria-label="Close Contact form"></i>
+        <h1 class="modal-title" id="contact-title">Contactez-moi<br />${photographer.name}</h1>
+        <span class="fal fa-times" id="close-modal" tabindex="0" aria-label="Close Contact form"></span>
       </div>
       <div class="form-modal">
-        <label for="firstname" class="label-modal">Prénom</label>
-        <input id="firstname" name="firstname" type="text" class="input-modal"/>
-        <label for="lastname" class="label-modal">Nom</label> 
-        <input id="lastname" name="lastname" type="text" class="input-modal"/>
-        <label for="email" class="label-modal">Email</label> 
-        <input id="email" name="email" type="email" class="input-modal"/>
-        <label for="message" class="label-modal label-message">Votre message</label>
-        <textarea name="message" id="message" class="textarea-modal"></textarea>
+        <label for="firstname" class="label-modal" id="firstname-label" aria-label="First name">Prénom</label>
+        <input id="firstname" name="firstname" type="text" class="input-modal" aria-labelledby="firstname-label"/>
+        <label for="lastname" class="label-modal" id="lastname-label" aria-label="Last name">Nom</label> 
+        <input id="lastname" name="lastname" type="text" class="input-modal" aria-labelledby="lastname-label" />
+        <label for="email" class="label-modal" id="email-label" aria-label="Email">Email</label> 
+        <input id="email" name="email" type="email" class="input-modal" aria-labelledby="email-label" />
+        <label for="message" class="label-modal label-message" id="messsage-label" aria-label="Your message">Votre message</label>
+        <textarea name="message" id="message" class="textarea-modal" aria-labelledby="message-label"></textarea>
         <button id="send-modal" aria-label="Send">Envoyer</button>
       </div>
     </div>

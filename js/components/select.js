@@ -1,6 +1,8 @@
 import { chainingMedias } from "../utils/chainingMedias.js";
 import { onClick } from "../utils/onClick.js";
 
+
+// Re-write the DOM with medias sorted
 const reloadMedias = (medias) => {
   const mediaList = document.getElementById("media-list-container");
   mediaList.innerHTML = "";
@@ -47,18 +49,25 @@ const sortMedias = (medias, sortBy) => {
   }
 };
 
+// Open the select
 const openSelectMenu = ({ selectButton, selectMenu, wrapper }) => {
   selectButton.className = "select-button-open";
   selectMenu.className = "select-menu-open";
   wrapper.className = "select-wrapper-open";
+
+  selectButton.setAttribute("aria-expanded", "true");
 };
 
+// Close the select
 const closeSelectMenu = ({ selectButton, selectMenu, wrapper }) => {
   selectButton.className = "select-button-close";
   selectMenu.className = "select-menu-close";
   wrapper.className = "select-wrapper-close";
+
+  selectButton.setAttribute("aria-expanded", "false");
 };
 
+// Toggle which target the Nodes elements
 const toggleSelectMenu = () => {
   const wrapper = document.getElementById("select-wrapper");
   const selectButton = document.getElementById("select-button");
@@ -81,17 +90,38 @@ const toggleSelectMenu = () => {
   }
 };
 
+// Function which select the value selected and make the properties updates 
 const selectElement = (element, button, medias) => {
   const textValue = element.innerText;
 
-  element.innerText = button.innerText;
-  button.innerHTML = `${textValue}<i class="fas fa-chevron-up select-up"></i>
-  <i class="fas fa-chevron-down select-down"></i>`;
+  const selectMenu = document.getElementById("select-menu");
+
+  const active = document.getElementById(
+    selectMenu.getAttribute("aria-activedescendant")
+  );
+  const activeSeparator = document.getElementById(
+    `${selectMenu.getAttribute("aria-activedescendant")}-separator`
+  );
+
+  active.className = "select-element";
+  activeSeparator.className = "select-separator";
+
+  button.innerHTML = `${textValue}<span class="fas fa-chevron-up select-up"></span>
+  <span class="fas fa-chevron-down select-down"></span>`;
+
+  const elementId = element.id;
+  selectMenu.setAttribute("aria-activedescendant", elementId);
+  element.className = "select-element element-selected";
+
+  const separator = document.getElementById(`${elementId}-separator`);
+  separator.className = "select-separator element-selected";
+
   toggleSelectMenu();
 
   sortMedias(medias, textValue);
 };
 
+// Target the button to toggle the dropdown
 const selectButtonEvent = (medias) => {
   const button = document.getElementById("select-button");
   const elements = document.getElementsByClassName("select-element");
